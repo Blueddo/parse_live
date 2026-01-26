@@ -1,0 +1,73 @@
+{
+  "users_file": "userstiktok.txt",
+  "m3u_file": "tiktok_live_2.m3u",
+  "json_file": "tiktok_live_metadata.json",
+  "log_file": "parse_tiktok_m3u.log",
+
+  "avatars_dir": "avatars",
+  "avatar_cache_file": "avatars_cache.json",
+
+  "avatar_mode": "local",
+  "avatar_refresh_days": 3,
+  "avatar_download_once": false,
+  "avatar_resize": 256,
+
+  "github_user": "Blueddo",
+  "github_repo": "Bluelist",
+
+  "quality": "worst_video",
+  "manual_quality": "",
+  "worst_video": true,
+
+  "ignore_ao_in_video_modes": true,
+  "use_ao_only_when_requested": true,
+  "allow_ao_fallback": false,
+  "fallback_to_lower_quality": true,
+
+  "worst_quality_rank": {
+    "ld5": 1,
+    "ld": 2,
+    "zsd5": 3,
+    "sd": 4,
+    "hd5": 5,
+    "hd": 6,
+    "origin5": 7,
+    "origin": 8,
+    "ao": 9
+  },
+
+  "protocol": "all",
+  "fallback_to_other_protocols": true,
+
+  "interval": 1800,
+  "timeout": 10,
+
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+  "accept_language": "el-GR,el;q=0.9,en-US;q=0.8,en;q=0.7",
+
+  "timezone": "Europe/Athens",
+  "locale": "el",
+
+  "m3u_extinf_template": "{uid} | {nick} - {title} | Ώρα έναρξης: {start_time} | {quality} | {protocol}",
+  "m3u_extinf_fields": {
+    "uid": true,
+    "nick": true,
+    "title": true,
+    "start_time": true,
+    "status": false,
+    "quality": true,
+    "protocol": true
+  },
+
+  "enable_extfilter": true,
+  "save_empty_m3u_header": true,
+  "empty_m3u_message": "#EXTINF:-1, Δεν βρέθηκαν live ή υπήρξε σφάλμα",
+
+  "log_level": "info",
+  "check_url_active": true,
+
+  "debug_mode": false,
+  "debug_dir": "debug",
+
+  "run_mode": "single"
+}
