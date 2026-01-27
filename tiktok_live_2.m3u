@@ -1,3 +1,5 @@
 #EXTM3U $BorpasFileFormat="1" $NestedGroupsSeparator="/"
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/dimitra.teacher.lion.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",dimitra.teacher.lion | 🦋Dimitra S🦋♌🦁 - | Ώρα έναρξης: 08:53:30 | ld | flv
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670425245714005_ld5.flv?expire=1770707183&sign=a8e04890d9de502545dfdcb9985f1dec
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/muglikat.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",muglikat | Katerina MK🐈‍⬛ - Καλωσορίσατε🤗￼ ￼￼ Καλή εβδομάδα | Ώρα έναρξης: 08:29:54 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670330087966293_ld5.flv?expire=1770705125&sign=409fce2bcd53e62346e190d87ed34de1
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670330087966293_ld5.flv?expire=1770707208&sign=e44872311a0af7945b4acfd87bb8dd1f
