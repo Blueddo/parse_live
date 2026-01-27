@@ -720,31 +720,39 @@ class AvatarEngine:
 
         return None
 
-    # ---------- MAIN SELECTOR ----------
+    # ---------- MAIN SELECTOR (ΤΡΟΠΟΠΟΙΗΜΕΝΟ) ----------
     def select(self, uid, avatar_url):
-        # 1. Mode none
+        # 1. Καμία εμφάνιση λογότυπου
         if self.mode == "none":
             return ""
 
-        # 2. Mode favicon
+        # 2. Μόνο το στατικό εικονίδιο του TikTok
         if self.mode == "favicon":
             return "https://www.tiktok.com/favicon.ico"
 
-        # 3. Mode remote (Το προσωρινό link του TikTok)
+        # 3. Remote Mode: Χρήση του avatarThumb (Προσωρινό link)
         if self.mode == "remote":
             return avatar_url or "https://www.tiktok.com/favicon.ico"
 
-        # 4. Mode local / smart
-        if self.mode in ["local", "smart"]:
-            # Κατεβάζει τη φωτό τοπικά στον φάκελο avatars/
+        # 4. Local Mode: ΑΠΟΘΗΚΕΥΣΗ ΣΤΟ PARSE_LIVE ΚΑΙ LINK ΕΚΕΙ
+        # ΠΡΟΣΘΗΚΗ: Το link πλέον δείχνει μόνιμα στο parse_live/avatars/
+        if self.mode == "local":
             success = self.download(uid, avatar_url)
             if success:
-                # Επιστρέφει το link από το repo parse_live (εκεί που είναι οι φωτό)
                 return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
-            
-            return avatar_url or "https://www.tiktok.com/favicon.ico"
+            return "https://www.tiktok.com/favicon.ico"
 
-        # Default fallback
+        # 5. Smart Mode: Δοκιμάζει Local (parse_live) -> Remote -> Favicon
+        if self.mode == "smart":
+            success = self.download(uid, avatar_url)
+            if success:
+                return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
+
+            if avatar_url:
+                return avatar_url
+
+            return "https://www.tiktok.com/favicon.ico"
+
         return "https://www.tiktok.com/favicon.ico"
 
 # ---------- Γράψιμο M3U & JSON ----------
@@ -1106,5 +1114,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
