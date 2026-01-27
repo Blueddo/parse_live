@@ -741,8 +741,9 @@ class AvatarEngine:
 
         # MODE: local
         if self.mode == "local":
-            local = self.download(uid, avatar_url)
-            return local or "https://www.tiktok.com/favicon.ico"
+            self.download(uid, avatar_url)
+            # ΠΡΟΣΘΗΚΗ: Επιστρέφει το link από το GitHub αντί για το τοπικό path
+            return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
 
         # MODE: smart (github → local → remote → favicon)
         if self.mode == "smart":
@@ -752,9 +753,9 @@ class AvatarEngine:
                 return gh
 
             # 2) Local
-            local = self.download(uid, avatar_url)
-            if local:
-                return local
+            self.download(uid, avatar_url)
+            # ΠΡΟΣΘΗΚΗ: Επιστρέφει το link από το GitHub αντί για το τοπικό path
+            return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
 
             # 3) Remote
             if avatar_url:
@@ -1126,3 +1127,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
