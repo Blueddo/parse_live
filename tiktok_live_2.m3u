@@ -1,7 +1,7 @@
 #EXTM3U $BorpasFileFormat="1" $NestedGroupsSeparator="/"
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/xristinasidiropou2.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",xristinasidiropou2 | Σκληρό Πυρηνική 👊🥰 - | Ώρα έναρξης: 11:00:30 | origin | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670936618665557.flv?expire=1770714368&sign=a5a03d41c2c46fdee7254ef98d9721a3
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/xristinasidiropou2.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",xristinasidiropou2 | Σκληρό Πυρηνική 👊🥰 - | Ώρα έναρξης: 11:11:11 | origin | flv
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670979702031957.flv?expire=1770715876&sign=a1238aa61567ccc67ac6f08fe5e3e7c8
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/eosforos_._666.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",eosforos_._666 | 😈𝑬𝑶𝑺𝑭𝑶𝑹𝑶𝑺😈 - καλώς τους!🤘😈🤘 | Ώρα έναρξης: 10:50:26 | origin | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670896150971989.flv?expire=1770714446&sign=449768c2aaf677ce28181e7c92f5f89e
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/kondyliascreations.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",kondyliascreations | Κονδυλία Μαρτζάκλη - | Ώρα έναρξης: 10:50:19 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670895546205781_ld5.flv?expire=1770714474&sign=06cea67c0336106309b71897f5a8284c
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670896150971989.flv?expire=1770715960&sign=54c2ac1874686c6aba76d6fe52929df0
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/kondyliascreations.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",kondyliascreations | Κονδυλία Μαρτζάκλη - | Ώρα έναρξης: 10:50:19 | origin | flv
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670895546205781.flv?expire=1770715990&sign=552b0a26adc484562cb1b8d3b7c57551
