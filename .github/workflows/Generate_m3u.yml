@@ -9,15 +9,11 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'Επίλεξε: workflow (dispatch generate_m3u.yml) | script (τρέξε το parse_tiktok_live.py)'
+        description: 'Επίλεξε: script'
         required: true
         default: 'script'
-      ref:
-        description: 'Το git ref (branch/tag) για dispatch όταν mode=workflow'
-        required: false
-        default: 'main'
       trigger:
-        description: 'Πηγή εκτέλεσης (manual/cronjob)'
+        description: 'Πηγή εκτέλεσης'
         required: false
         default: 'manual'
 
@@ -31,115 +27,61 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Εμφάνιση trigger πηγής
-        run: echo "::notice title=Trigger Source::${{ github.event.inputs.trigger || 'manual' }}"
-
-      - name: Εγκαταστήστε GH και JQ (χρήσιμο για εξωτερικά checks)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gh jq
-
-      - name: Checkout
+      - name: Checkout parse_live
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Σημαντικό για να μπορεί να κάνει push πίσω
-
-      - name: Πακέτα μνήμης cache pip
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          fetch-depth: 0
 
       - name: Ρύθμιση Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Εγκατάσταση εξαρτήσεων (αν υπάρχει requirements.txt)
+      - name: Εγκατάσταση εξαρτήσεων
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Εκτέλεση parse_tiktok_live.py (single run)
-        run: |
-          # Το script διαβάζει config.json και τρέχει σε single mode
-          python parse_tiktok_live.py
+      - name: Εκτέλεση parse_tiktok_live.py
+        run: python parse_tiktok_live.py
 
-      - name: Εμφάνιση αρχείου εξόδου
-        run: |
-          ls -la
-          test -f tiktok_live_2.m3u && echo "tiktok_live_2.m3u produced" || echo "no m3u produced"
-          test -f tiktok_live_metadata.json && echo "tiktok_live_metadata.json produced" || echo "no metadata produced"
-
-      # --- ΝΕΟ ΒΗΜΑ: Αποθήκευση στο τρέχον repo (parse_live) ---
-      - name: Αποθήκευση avatars και αρχείων στο parse_live
+      # ΠΡΟΣΘΗΚΗ 1: Ενημέρωση του ίδιου του repo (parse_live) για τα logos και την cache
+      - name: Αποθήκευση στο parse_live
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          # Προσθήκη όλων των αρχείων και του φακέλου avatars
           git add avatars/ tiktok_live_2.m3u tiktok_live_metadata.json avatars_cache.json || true
           if git diff --staged --quiet; then
-            echo "No changes to commit in parse_live"
+            echo "No changes in parse_live"
           else
-            git commit -m "chore: update avatars & data in parse_live [${{ github.event.inputs.trigger || 'manual' }}]"
+            git commit -m "chore: update avatars, data and cache"
             git push origin main
           fi
 
-      - name: Δέσμευση & ώθηση σε δημόσιο repo (Bluelist)
+      # ΠΡΟΣΘΗΚΗ 2: Ενημέρωση του δημόσιου repo (Bluelist)
+      - name: Δέσμευση & ώθηση στο Bluelist
         env:
           PUBLIC_REPO_PAT: ${{ secrets.PUBLIC_REPO_PAT }}
           PUBLIC_REPO_PAT_ALT: ${{ secrets.PUBLIC_REPO_PAT_ALT }}
         run: |
-          set -e
-          # Κλωνοποίηση του public repo σε φάκελο public_repo
           git clone https://github.com/Blueddo/Bluelist.git public_repo
           cd public_repo
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # Αντιγραφή των αρχείων
-          cp ../tiktok_live_2.m3u tiktok_live_2.m3u || true
-          cp ../tiktok_live_metadata.json tiktok_live_metadata.json || true
-          
-          # Αντιγραφή ολόκληρου του φακέλου avatars
+          # Αντιγραφή αρχείων από τον runner
+          cp ../tiktok_live_2.m3u . || true
+          cp ../tiktok_live_metadata.json . || true
           cp -r ../avatars . || true
           
-          # Ενημερωμένο git add για το Bluelist
-          git add avatars/ tiktok_live_2.m3u tiktok_live_metadata.json || true
-          
-          # Commit μόνο αν υπάρχουν αλλαγές
+          git add .
           if git diff --staged --quiet; then
-            echo "No changes to commit in Bluelist"
+            echo "No changes for Bluelist"
           else
-            git commit -m "chore: update M3U, metadata & avatars [${{ github.event.inputs.trigger || 'manual' }}]"
+            git commit -m "Update M3U & Avatars [${{ github.event.inputs.trigger || 'manual' }}]"
+            TOKEN="${PUBLIC_REPO_PAT_ALT:-$PUBLIC_REPO_PAT}"
+            git push https://Blueddo:${TOKEN}@github.com/Blueddo/Bluelist.git
           fi
-          
-          # Push using provided PAT secret(s)
-          if [ -n "${PUBLIC_REPO_PAT_ALT}" ]; then
-            git push https://Blueddo:${PUBLIC_REPO_PAT_ALT}@github.com/Blueddo/Bluelist.git || echo "Push failed"
-          else
-            git push https://Blueddo:${PUBLIC_REPO_PAT}@github.com/Blueddo/Bluelist.git || echo "Push failed"
-          fi
-
-  dispatch_workflow:
-    if: github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'workflow'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Εκκίνηση ροής εργασίας generate_m3u.yml μέσω API
-        env:
-          DISPATCH_PAT: ${{ secrets.DISPATCH_PAT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_WORKFLOW: "generate_m3u.yml"
-          TARGET_REF: ${{ github.event.inputs.ref }}
-        run: |
-          TOKEN="${DISPATCH_PAT:-$GITHUB_TOKEN}"
-          if [ -z "$TOKEN" ]; then
-            echo "No token available for dispatch. Add a secret named DISPATCH_PAT or ensure GITHUB_TOKEN is present."
-            exit 1
-          fi
-          REF="${TARGET_REF:-main}"
           curl -sS -X POST \
             -H "Authorization: token $TOKEN" \
             -H "Accept: application/vnd.github+json" \
