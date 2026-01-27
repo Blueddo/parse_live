@@ -1,5 +1,5 @@
 #EXTM3U $BorpasFileFormat="1" $NestedGroupsSeparator="/"
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/dimitra.teacher.lion.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",dimitra.teacher.lion | 🦋Dimitra S🦋♌🦁 - | Ώρα έναρξης: 08:53:30 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670425245714005_ld5.flv?expire=1770707183&sign=a8e04890d9de502545dfdcb9985f1dec
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/muglikat.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",muglikat | Katerina MK🐈‍⬛ - Καλωσορίσατε🤗￼ ￼￼ Καλή εβδομάδα | Ώρα έναρξης: 08:29:54 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670330087966293_ld5.flv?expire=1770707208&sign=e44872311a0af7945b4acfd87bb8dd1f
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/aurhlios1.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",aurhlios1 | ΘΕΊΑ ΚΙΤΣΑ - | Ώρα έναρξης: 09:27:52 | origin | flv
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670563560490581.flv?expire=1770708647&sign=0bf9c099185a75e95238db3f67007594
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/liakimak.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",liakimak | Λία Μακροστέργιου - | Ώρα έναρξης: 09:27:21 | ld | flv
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670561613284949_ld5.flv?expire=1770708712&sign=4656c189f927c7660f4ad8abffa3214d
