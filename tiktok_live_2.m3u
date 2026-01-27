@@ -1,7 +1,3 @@
 #EXTM3U $BorpasFileFormat="1" $NestedGroupsSeparator="/"
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/dimitra.teacher.lion.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",dimitra.teacher.lion | 🦋Dimitra S🦋♌🦁 - | Ώρα έναρξης: 09:31:26 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670578050500181_ld5.flv?expire=1770710778&sign=ac9f1a2d85ee251b5c607ce53ef0657e
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/liakimak.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",liakimak | Λία Μακροστέργιου - | Ώρα έναρξης: 09:27:21 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670561613284949_ld5.flv?expire=1770710800&sign=0823c759bea7ab221aa36e851686bbe5
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/tzervoudakis.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",tzervoudakis | tzervoudakis - | Ώρα έναρξης: 09:56:44 | ld | flv
-https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271670679929357633_ld5.flv?expire=1770710872&sign=3de33a342090e9deb8686a7e8e30cd58
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670561613284949_ld5.flv?expire=1770712300&sign=bbef93e972e116fdd7d0ee723b11a6ba
