@@ -722,53 +722,30 @@ class AvatarEngine:
 
     # ---------- MAIN SELECTOR ----------
     def select(self, uid, avatar_url):
-        # 1. Καμία εμφάνιση λογότυπου
+        # 1. Mode none
         if self.mode == "none":
             return ""
 
-        # 2. Μόνο το στατικό εικονίδιο του TikTok
+        # 2. Mode favicon
         if self.mode == "favicon":
             return "https://www.tiktok.com/favicon.ico"
 
-        # 3. Χρήση του API του GitHub (αν το υποστηρίζει το script σου)
-        if self.mode == "github":
-            url = self.github_url(uid)
-            return url or "https://www.tiktok.com/favicon.ico"
-
-        # 4. Remote Mode: Χρήση του avatarThumb από το API (Προσωρινό link)
+        # 3. Mode remote (Το προσωρινό link του TikTok)
         if self.mode == "remote":
             return avatar_url or "https://www.tiktok.com/favicon.ico"
 
-        # 5. Local Mode: Κατεβάζει τη φωτό και δίνει το link του δικού σου Repo
-        if self.mode == "local":
+        # 4. Mode local / smart
+        if self.mode in ["local", "smart"]:
+            # Κατεβάζει τη φωτό τοπικά στον φάκελο avatars/
             success = self.download(uid, avatar_url)
             if success:
-                # Επιστρέφει το μόνιμο link από το parse_live repo σου
+                # Επιστρέφει το link από το repo parse_live (εκεί που είναι οι φωτό)
                 return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
-            return "https://www.tiktok.com/favicon.ico"
+            
+            return avatar_url or "https://www.tiktok.com/favicon.ico"
 
-        # 6. Smart Mode: Δοκιμάζει GitHub -> Local -> Remote -> Favicon
-        if self.mode == "smart":
-            # Πρώτα έλεγχος αν υπάρχει ήδη στο GitHub
-            gh = self.github_url(uid)
-            if gh:
-                return gh
-
-            # Μετά προσπάθεια για Local download και δημιουργία link
-            success = self.download(uid, avatar_url)
-            if success:
-                return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
-
-            # Αν αποτύχουν τα παραπάνω, χρήση του αυθεντικού URL από το API
-            if avatar_url:
-                return avatar_url
-
-            # Τελική λύση ανάγκης
-            return "https://www.tiktok.com/favicon.ico"
-
-        # Γενικό fallback
+        # Default fallback
         return "https://www.tiktok.com/favicon.ico"
-
 
 # ---------- Γράψιμο M3U & JSON ----------
 def write_outputs(live_infos: List[Dict], cfg: dict, log: Logger) -> None:
@@ -1129,4 +1106,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
