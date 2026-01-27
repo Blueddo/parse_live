@@ -41,6 +41,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Σημαντικό για να μπορεί να κάνει push πίσω
 
       - name: Πακέτα μνήμης cache pip
         uses: actions/cache@v4
@@ -71,6 +73,20 @@ jobs:
           test -f tiktok_live_2.m3u && echo "tiktok_live_2.m3u produced" || echo "no m3u produced"
           test -f tiktok_live_metadata.json && echo "tiktok_live_metadata.json produced" || echo "no metadata produced"
 
+      # --- ΝΕΟ ΒΗΜΑ: Αποθήκευση στο τρέχον repo (parse_live) ---
+      - name: Αποθήκευση avatars και αρχείων στο parse_live
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          # Προσθήκη όλων των αρχείων και του φακέλου avatars
+          git add avatars/ tiktok_live_2.m3u tiktok_live_metadata.json avatars_cache.json || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit in parse_live"
+          else
+            git commit -m "chore: update avatars & data in parse_live [${{ github.event.inputs.trigger || 'manual' }}]"
+            git push origin main
+          fi
+
       - name: Δέσμευση & ώθηση σε δημόσιο repo (Bluelist)
         env:
           PUBLIC_REPO_PAT: ${{ secrets.PUBLIC_REPO_PAT }}
@@ -83,19 +99,19 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # Αντιγραφή των αρχείων που ήδη είχες
+          # Αντιγραφή των αρχείων
           cp ../tiktok_live_2.m3u tiktok_live_2.m3u || true
           cp ../tiktok_live_metadata.json tiktok_live_metadata.json || true
           
-          # --- ΝΕΑ ΠΡΟΣΘΗΚΗ: Αντιγραφή ολόκληρου του φακέλου avatars ---
+          # Αντιγραφή ολόκληρου του φακέλου avatars
           cp -r ../avatars . || true
           
-          # Ενημερωμένο git add για να περιλαμβάνει και τον φάκελο avatars
-          git add tiktok_live_2.m3u tiktok_live_metadata.json avatars/ || true
+          # Ενημερωμένο git add για το Bluelist
+          git add avatars/ tiktok_live_2.m3u tiktok_live_metadata.json || true
           
           # Commit μόνο αν υπάρχουν αλλαγές
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No changes to commit in Bluelist"
           else
             git commit -m "chore: update M3U, metadata & avatars [${{ github.event.inputs.trigger || 'manual' }}]"
           fi
