@@ -722,50 +722,51 @@ class AvatarEngine:
 
     # ---------- MAIN SELECTOR ----------
     def select(self, uid, avatar_url):
-        # MODE: none
+        # 1. Καμία εμφάνιση λογότυπου
         if self.mode == "none":
             return ""
 
-        # MODE: favicon
+        # 2. Μόνο το στατικό εικονίδιο του TikTok
         if self.mode == "favicon":
             return "https://www.tiktok.com/favicon.ico"
 
-        # MODE: github (Από το εξωτερικό API αν το χρησιμοποιείς)
+        # 3. Χρήση του API του GitHub (αν το υποστηρίζει το script σου)
         if self.mode == "github":
             url = self.github_url(uid)
             return url or "https://www.tiktok.com/favicon.ico"
 
-        # MODE: remote (Το avatarThumb απευθείας από το TikTok)
+        # 4. Remote Mode: Χρήση του avatarThumb από το API (Προσωρινό link)
         if self.mode == "remote":
             return avatar_url or "https://www.tiktok.com/favicon.ico"
 
-        # MODE: local (Κατέβασμα και χρήση GitHub Link για το M3U)
+        # 5. Local Mode: Κατεβάζει τη φωτό και δίνει το link του δικού σου Repo
         if self.mode == "local":
             success = self.download(uid, avatar_url)
             if success:
+                # Επιστρέφει το μόνιμο link από το parse_live repo σου
                 return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
             return "https://www.tiktok.com/favicon.ico"
 
-        # MODE: smart (github → local → remote → favicon)
+        # 6. Smart Mode: Δοκιμάζει GitHub -> Local -> Remote -> Favicon
         if self.mode == "smart":
-            # 1) GitHub Check
+            # Πρώτα έλεγχος αν υπάρχει ήδη στο GitHub
             gh = self.github_url(uid)
             if gh:
                 return gh
 
-            # 2) Local Download & GitHub Link
+            # Μετά προσπάθεια για Local download και δημιουργία link
             success = self.download(uid, avatar_url)
             if success:
                 return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
 
-            # 3) Remote (Fallback στο URL του TikTok)
+            # Αν αποτύχουν τα παραπάνω, χρήση του αυθεντικού URL από το API
             if avatar_url:
                 return avatar_url
 
-            # 4) Fallback στο εικονίδιο TikTok
+            # Τελική λύση ανάγκης
             return "https://www.tiktok.com/favicon.ico"
 
-        # Τελικό fallback
+        # Γενικό fallback
         return "https://www.tiktok.com/favicon.ico"
 
 
