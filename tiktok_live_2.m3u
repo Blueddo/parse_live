@@ -1,3 +1,3 @@
 #EXTM3U $BorpasFileFormat="1" $NestedGroupsSeparator="/"
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/pounentism.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",pounentism | Pounentism - MAK ATTACK LIVE | Ώρα έναρξης: 07:02:11 | sd | flv
-https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271669976959812929_zsd5.flv?expire=1770699918&sign=34b21c9cfa111f7a9749eadbf36ccf70
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/pounentism.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",pounentism | Pounentism - MAK ATTACK LIVE | Ώρα έναρξης: 07:02:11 | ld | flv
+https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271669976959812929_ld5.flv?expire=1770701427&sign=52e83b5d6c9dcd77ad030859302c443e
