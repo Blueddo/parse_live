@@ -82,16 +82,24 @@ jobs:
           cd public_repo
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          # Αν τα αρχεία παράχθηκαν στο root του checkout, αντιγράφουμε
+          
+          # Αντιγραφή των αρχείων που ήδη είχες
           cp ../tiktok_live_2.m3u tiktok_live_2.m3u || true
           cp ../tiktok_live_metadata.json tiktok_live_metadata.json || true
-          git add tiktok_live_2.m3u tiktok_live_metadata.json || true
+          
+          # --- ΝΕΑ ΠΡΟΣΘΗΚΗ: Αντιγραφή ολόκληρου του φακέλου avatars ---
+          cp -r ../avatars . || true
+          
+          # Ενημερωμένο git add για να περιλαμβάνει και τον φάκελο avatars
+          git add tiktok_live_2.m3u tiktok_live_metadata.json avatars/ || true
+          
           # Commit μόνο αν υπάρχουν αλλαγές
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: update M3U & metadata [${{ github.event.inputs.trigger || 'manual' }}]"
+            git commit -m "chore: update M3U, metadata & avatars [${{ github.event.inputs.trigger || 'manual' }}]"
           fi
+          
           # Push using provided PAT secret(s)
           if [ -n "${PUBLIC_REPO_PAT_ALT}" ]; then
             git push https://Blueddo:${PUBLIC_REPO_PAT_ALT}@github.com/Blueddo/Bluelist.git || echo "Push failed"
