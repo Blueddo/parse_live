@@ -730,41 +730,42 @@ class AvatarEngine:
         if self.mode == "favicon":
             return "https://www.tiktok.com/favicon.ico"
 
-        # MODE: github
+        # MODE: github (Από το εξωτερικό API αν το χρησιμοποιείς)
         if self.mode == "github":
             url = self.github_url(uid)
             return url or "https://www.tiktok.com/favicon.ico"
 
-        # MODE: remote
+        # MODE: remote (Το avatarThumb απευθείας από το TikTok)
         if self.mode == "remote":
             return avatar_url or "https://www.tiktok.com/favicon.ico"
 
-        # MODE: local
+        # MODE: local (Κατέβασμα και χρήση GitHub Link για το M3U)
         if self.mode == "local":
-            self.download(uid, avatar_url)
-            # ΠΡΟΣΘΗΚΗ: Επιστρέφει το link από το GitHub αντί για το τοπικό path
-            return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
+            success = self.download(uid, avatar_url)
+            if success:
+                return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
+            return "https://www.tiktok.com/favicon.ico"
 
         # MODE: smart (github → local → remote → favicon)
         if self.mode == "smart":
-            # 1) GitHub
+            # 1) GitHub Check
             gh = self.github_url(uid)
             if gh:
                 return gh
 
-            # 2) Local
-            self.download(uid, avatar_url)
-            # ΠΡΟΣΘΗΚΗ: Επιστρέφει το link από το GitHub αντί για το τοπικό path
-            return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
+            # 2) Local Download & GitHub Link
+            success = self.download(uid, avatar_url)
+            if success:
+                return f"https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/{uid}.jpg"
 
-            # 3) Remote
+            # 3) Remote (Fallback στο URL του TikTok)
             if avatar_url:
                 return avatar_url
 
-            # 4) Fallback
+            # 4) Fallback στο εικονίδιο TikTok
             return "https://www.tiktok.com/favicon.ico"
 
-        # Default fallback
+        # Τελικό fallback
         return "https://www.tiktok.com/favicon.ico"
 
 
