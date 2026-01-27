@@ -1,19 +1,27 @@
 #EXTM3U $BorpasFileFormat="1" $NestedGroupsSeparator="/"
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/nataliakal21.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",nataliakal21 | Ναταλί♥️🦅 - Καλώς ήρθες 🥰 | Ώρα έναρξης: 12:27:55 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671288672552533_ld5.flv?expire=1770719473&sign=c75a175e8c347023c62651c804e0f83d
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/nataliakal21.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",nataliakal21 | Ναταλί♥️🦅 - Καλώς ήρθες 🥰 | Ώρα έναρξης: 12:36:54 | ld | flv
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671324780267093_ld5.flv?expire=1770721555&sign=77419d4ca960fe2478d96c71da91e6a7
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/iva_koumantaki.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",iva_koumantaki | Υβα Κουμαντάκη - Φτιάχνουμε παρέα κοσμήματα | Ώρα έναρξης: 12:08:13 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671209346467413_ld5.flv?expire=1770719486&sign=d094d4a1009d2160c650737e50e04faf
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671209346467413_ld5.flv?expire=1770721563&sign=5dee863cd4d8b047c48c04dadd8a57c7
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/panagiwta.0.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",panagiwta.0 | panagiwta - Καλέ γεια❤️ | Ώρα έναρξης: 11:53:11 | ld | flv
-https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671148753454401_ld5.flv?expire=1770719501&sign=3c5f439ec47e1ffded6869d0bfdc1c12
+https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671148753454401_ld5.flv?expire=1770721574&sign=f3b63a184a029e75d880462d8dbae9cd
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/michalis_evripiotis.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",michalis_evripiotis | Michalis Evripiotis - Η ομάδα είναι όαση! Πάμε για Α | Ώρα έναρξης: 11:53:15 | ld | flv
-https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671149080347969_ld5.flv?expire=1770719516&sign=5727a0993bd9853234f809a7918f63f3
+https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671149080347969_ld5.flv?expire=1770721585&sign=1c4d38c191374965039a89d071de3ef3
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/dimnicklive.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",dimnicklive | Dim&Nick Live - Join our Agency! Link in Bio | Ώρα έναρξης: 12:42:44 | ld | flv
+https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671348327089473_ld5.flv?expire=1770721587&sign=03887f210f43439072776a5b7d748305
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/valisa.sk.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",valisa.sk | VAL 🧜‍♀️ - Καλώς ήλθατε στο LIVE μου | Ώρα έναρξης: 12:45:40 | ld | flv
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671360146376277_ld5.flv?expire=1770721596&sign=0ccd6ec0c3c0b3ceaa2d2d54ba3380f9
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/alice_spyralatou.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",alice_spyralatou | Αλίκη -Σαλώμη 💗 - | Ώρα έναρξης: 12:13:25 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671230289413717_ld5.flv?expire=1770719529&sign=20d0421f65d098540d0a0d2781c48e7f
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671230289413717_ld5.flv?expire=1770721599&sign=ce340e28648735ab93a2748ebdd5fa14
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/pasxalitsa3.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",pasxalitsa3 | 🐞Πασχαλιτσα 🪼 - | Ώρα έναρξης: 12:55:13 | sd | flv
+https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671398660572481_zsd5.flv?expire=1770721636&sign=bf80fa1f0078071d8de5182915d5014d
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/eosforos_._666.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",eosforos_._666 | 😈𝑬𝑶𝑺𝑭𝑶𝑹𝑶𝑺😈 - καλώς τους!🤘😈🤘 | Ώρα έναρξης: 10:50:26 | origin | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670896150971989.flv?expire=1770719572&sign=ff9457b3f0ad3844eb02e142d28123a2
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670896150971989.flv?expire=1770721650&sign=fddb7b4122c063e8bcc81aadf12c18fa
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/stefania_greece_4.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",stefania_greece_4 | Stefania_greece_❤️🆓🍉❤️ - | Ώρα έναρξης: 12:36:38 | ld | flv
+https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671323831305537_ld5.flv?expire=1770721652&sign=23d881908798f983368261d190423801
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/super_katerina8.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",super_katerina8 | Super_Katerina 💪 - Φωτίζουμε gallery 💖 | Ώρα έναρξης: 12:26:28 | ld | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671282833032789_ld5.flv?expire=1770719591&sign=821d4e6359ab0fe5602f49050569cc08
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271671282833032789_ld5.flv?expire=1770721668&sign=9a856e0e588236029c018675c3a5aa1a
 #EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/evasshelterkastoria.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",evasshelterkastoria | EVA'S SHELTER Kastoria - | Ώρα έναρξης: 11:52:49 | ld | flv
-https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671147271816513_ld5.flv?expire=1770719601&sign=f9e2c05d25731d877c27aecd41ff2f47
-#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/kondyliascreations.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",kondyliascreations | Κονδυλία Μαρτζάκλη - | Ώρα έναρξης: 10:50:19 | origin | flv
-https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670895546205781.flv?expire=1770719607&sign=84eb7fbf8788763f743e2371092c7d3e
+https://pull-flv-f77-tt04.tiktokcdn-us.com/stage/stream-1271671147271816513_ld5.flv?expire=1770721676&sign=d619e3ce90bbaf0dd938a331d7e04994
+#EXTINF:-1 group-title="TikTok Live" tvg-logo="https://raw.githubusercontent.com/Blueddo/parse_live/main/avatars/kondyliascreations.jpg" tvg-id="simpleTVFakeEpgId" $ExtFilter="Tikitok live",kondyliascreations | Κονδυλία Μαρτζάκλη - | Ώρα έναρξης: 10:50:19 | ld | flv
+https://pull-flv-l77-tt04.tiktokcdn-us.com/stage/stream-1271670895546205781_ld5.flv?expire=1770721681&sign=2cc692e9bda8c43bb91e67f7f856e180
