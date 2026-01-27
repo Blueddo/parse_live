@@ -45,20 +45,20 @@ jobs:
       - name: Εκτέλεση parse_tiktok_live.py
         run: python parse_tiktok_live.py
 
-      # ΠΡΟΣΘΗΚΗ 1: Ενημέρωση του ίδιου του repo (parse_live) για τα logos και την cache
-      - name: Αποθήκευση στο parse_live
+      # Βήμα 1: Ενημέρωση του parse_live (ΕΔΩ ΜΠΑΙΝΟΥΝ ΟΙ ΕΙΚΟΝΕΣ)
+      - name: Αποθήκευση εικόνων στο parse_live
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add avatars/ tiktok_live_2.m3u tiktok_live_metadata.json avatars_cache.json || true
-          if git diff --staged --quiet; then
-            echo "No changes in parse_live"
-          else
-            git commit -m "chore: update avatars, data and cache"
+          # Προσθέτουμε μόνο τον φάκελο avatars και την cache
+          git add avatars/ avatars_cache.json
+          if ! git diff --staged --quiet; then
+            git commit -m "update icons and cache"
+            git pull --rebase origin main
             git push origin main
           fi
 
-      # ΠΡΟΣΘΗΚΗ 2: Ενημέρωση του δημόσιου repo (Bluelist)
+      # Βήμα 2: Ενημέρωση του Bluelist (ΜΟΝΟ ΤΑ ΑΡΧΕΙΑ M3U/JSON)
       - name: Δέσμευση & ώθηση στο Bluelist
         env:
           PUBLIC_REPO_PAT: ${{ secrets.PUBLIC_REPO_PAT }}
@@ -69,16 +69,15 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # Αντιγραφή αρχείων από τον runner
+          # Αντιγραφή ΜΟΝΟ των αρχείων λίστας
           cp ../tiktok_live_2.m3u . || true
           cp ../tiktok_live_metadata.json . || true
-          cp -r ../avatars . || true
           
-          git add .
-          if git diff --staged --quiet; then
-            echo "No changes for Bluelist"
-          else
-            git commit -m "Update M3U & Avatars [${{ github.event.inputs.trigger || 'manual' }}]"
+          # ΔΕΝ αντιγράφουμε τον φάκελο avatars εδώ
+          
+          git add tiktok_live_2.m3u tiktok_live_metadata.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Update Playlist [${{ github.event.inputs.trigger || 'manual' }}]"
             TOKEN="${PUBLIC_REPO_PAT_ALT:-$PUBLIC_REPO_PAT}"
             git push https://Blueddo:${TOKEN}@github.com/Blueddo/Bluelist.git
           fi
