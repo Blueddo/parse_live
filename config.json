@@ -7,7 +7,7 @@
   "avatars_dir": "avatars",
   "avatar_cache_file": "avatars_cache.json",
 
-  "avatar_mode": "local",
+  "avatar_mode": "smart",
   "avatar_refresh_days": 3,
   "avatar_download_once": false,
   "avatar_resize": 256,
@@ -71,6 +71,7 @@
 
   "run_mode": "single"
 }
+
 
 
 
